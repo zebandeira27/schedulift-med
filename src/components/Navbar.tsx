@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,16 +20,19 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-foreground hover:text-primary transition-colors font-medium">
+            <a href="/#features" className="text-foreground hover:text-primary transition-colors font-medium">
               Features
             </a>
-            <a href="#pricing" className="text-foreground hover:text-primary transition-colors font-medium">
+            <Link to="/patient-history" className="text-foreground hover:text-primary transition-colors font-medium">
+              Patient History
+            </Link>
+            <a href="/#pricing" className="text-foreground hover:text-primary transition-colors font-medium">
               Pricing
             </a>
-            <a href="#testimonials" className="text-foreground hover:text-primary transition-colors font-medium">
+            <a href="/#testimonials" className="text-foreground hover:text-primary transition-colors font-medium">
               Testimonials
             </a>
-            <a href="#contact" className="text-foreground hover:text-primary transition-colors font-medium">
+            <a href="/#contact" className="text-foreground hover:text-primary transition-colors font-medium">
               Contact
             </a>
           </div>
@@ -54,28 +58,35 @@ const Navbar = () => {
           <div className="md:hidden py-4 border-t border-border animate-fade-in">
             <div className="flex flex-col gap-4">
               <a
-                href="#features"
+                href="/#features"
                 className="text-foreground hover:text-primary transition-colors font-medium py-2"
                 onClick={() => setIsOpen(false)}
               >
                 Features
               </a>
+              <Link
+                to="/patient-history"
+                className="text-foreground hover:text-primary transition-colors font-medium py-2"
+                onClick={() => setIsOpen(false)}
+              >
+                Patient History
+              </Link>
               <a
-                href="#pricing"
+                href="/#pricing"
                 className="text-foreground hover:text-primary transition-colors font-medium py-2"
                 onClick={() => setIsOpen(false)}
               >
                 Pricing
               </a>
               <a
-                href="#testimonials"
+                href="/#testimonials"
                 className="text-foreground hover:text-primary transition-colors font-medium py-2"
                 onClick={() => setIsOpen(false)}
               >
                 Testimonials
               </a>
               <a
-                href="#contact"
+                href="/#contact"
                 className="text-foreground hover:text-primary transition-colors font-medium py-2"
                 onClick={() => setIsOpen(false)}
               >
