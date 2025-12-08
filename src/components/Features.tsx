@@ -1,35 +1,42 @@
-import { Calendar, Users, Bell, BarChart3, Clock, Shield } from "lucide-react";
+import { Calendar, Users, Bell, BarChart3, Clock, Shield, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const features = [
   {
     icon: Calendar,
     title: "Smart Scheduling",
-    description: "Intelligent calendar with automated conflict prevention and real-time availability.",
+    description: "AI-powered calendar that prevents conflicts and optimizes your day automatically.",
+    highlight: "Reduce scheduling errors by 90%",
   },
   {
     icon: Users,
     title: "Patient Management",
-    description: "Complete profiles with medical history tracking and instant access to records.",
+    description: "Complete profiles with medical history, preferences, and instant access to records.",
+    highlight: "360° patient view",
   },
   {
     icon: Bell,
     title: "Automated Reminders",
-    description: "Reduce no-shows with SMS and email reminders sent automatically.",
+    description: "SMS, email, and WhatsApp reminders that cut no-shows in half.",
+    highlight: "30% fewer no-shows",
   },
   {
     icon: BarChart3,
     title: "Analytics & Reports",
-    description: "Real-time insights into performance, revenue, and patient flow.",
+    description: "Real-time dashboards showing revenue, utilization, and patient flow.",
+    highlight: "Data-driven decisions",
   },
   {
     icon: Clock,
     title: "Waitlist Management",
-    description: "Fill cancellations automatically to maximize clinic utilization.",
+    description: "Fill cancellations automatically and keep your calendar optimized.",
+    highlight: "Maximize revenue",
   },
   {
     icon: Shield,
     title: "HIPAA Compliant",
-    description: "Enterprise-grade security with full compliance for patient data.",
+    description: "Enterprise-grade security with SOC 2 Type II and full HIPAA compliance.",
+    highlight: "Bank-level security",
   },
 ];
 
@@ -41,20 +48,21 @@ const Features = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="inline-block text-sm font-semibold text-primary mb-4 tracking-wide uppercase">
             Features
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 tracking-tight">
-            Everything your clinic needs
+            Everything you need.
+            <span className="block text-muted-foreground mt-2">Nothing you don't.</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Powerful tools designed to streamline operations and elevate patient care.
+            Built by healthcare professionals, for healthcare professionals. Every feature serves a purpose.
           </p>
         </div>
 
         {/* Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
@@ -70,6 +78,9 @@ const Features = () => {
                   <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary/15 transition-all duration-300">
                     <Icon className="h-7 w-7 text-primary" />
                   </div>
+                  <div className="text-xs font-medium text-primary/80 mb-2 uppercase tracking-wider">
+                    {feature.highlight}
+                  </div>
                   <h3 className="text-xl font-semibold text-foreground mb-3">
                     {feature.title}
                   </h3>
@@ -80,6 +91,17 @@ const Features = () => {
               </div>
             );
           })}
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="text-center">
+          <p className="text-muted-foreground mb-6">
+            And dozens more features to discover...
+          </p>
+          <Button variant="outline" size="lg" className="rounded-xl group">
+            Explore All Features
+            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+          </Button>
         </div>
       </div>
     </section>
