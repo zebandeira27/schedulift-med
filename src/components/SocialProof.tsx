@@ -1,32 +1,44 @@
-import { Quote } from "lucide-react";
-import medicalTeam from "@/assets/medical-team.png";
+import { Quote, ArrowRight } from "lucide-react";
+import abstractShapes from "@/assets/abstract-shapes.png";
+import { Button } from "@/components/ui/button";
 
-const clinicLogos = [
-  "HealthFirst",
-  "MedCare",
-  "WellnessHub",
-  "PrimeCare",
-  "VitalHealth",
-  "CarePoint",
+const brandLogos = [
+  "Meridian",
+  "Elevate",
+  "Catalyst",
+  "Nexus",
+  "Prism",
+  "Vertex",
 ];
 
 const SocialProof = () => {
   return (
-    <section className="py-20 md:py-28 bg-secondary/30 relative overflow-hidden">
-      {/* Background accent */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/3 rounded-full blur-3xl" />
+    <section className="py-24 md:py-32 relative overflow-hidden">
+      {/* Subtle background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/20 to-background" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/3 rounded-full blur-3xl" />
       
       <div className="container mx-auto px-4 relative z-10">
-        {/* Logo Cloud */}
-        <div className="text-center mb-20">
-          <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-8">
-            Powering the clinics that power healthcare
+        {/* Opening statement */}
+        <div className="text-center mb-20 max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
+            Built for those who
+            <span className="block bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
+              demand more
+            </span>
+          </h2>
+          <p className="text-lg text-muted-foreground">
+            Join the organizations that chose excellence over convenience.
           </p>
-          <div className="flex flex-wrap justify-center gap-x-12 gap-y-6 items-center">
-            {clinicLogos.map((name, idx) => (
+        </div>
+        
+        {/* Logo Cloud */}
+        <div className="mb-24">
+          <div className="flex flex-wrap justify-center gap-x-16 gap-y-8 items-center">
+            {brandLogos.map((name, idx) => (
               <div 
                 key={idx} 
-                className="text-xl md:text-2xl font-bold text-muted-foreground/40 hover:text-primary/60 transition-colors duration-300"
+                className="text-2xl md:text-3xl font-bold text-muted-foreground/25 hover:text-primary/50 transition-all duration-500 cursor-default"
               >
                 {name}
               </div>
@@ -34,48 +46,60 @@ const SocialProof = () => {
           </div>
         </div>
         
-        {/* Featured Story */}
+        {/* Featured Story - Abstract approach */}
         <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Image */}
-            <div className="relative animate-fade-in">
-              <div className="absolute -inset-4 bg-gradient-to-br from-primary/10 to-accent/10 rounded-3xl blur-xl" />
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Abstract Image */}
+            <div className="relative animate-fade-in order-2 lg:order-1">
+              <div className="absolute -inset-8 bg-gradient-to-br from-primary/20 to-accent/10 rounded-full blur-3xl opacity-50" />
               <img 
-                src={medicalTeam} 
-                alt="Medical team at HealthCare Plus clinic"
-                className="relative rounded-2xl shadow-medium border border-border/50 w-full object-cover"
+                src={abstractShapes} 
+                alt="Abstract fluid shapes representing seamless workflow"
+                className="relative rounded-3xl w-full"
               />
-              <div className="absolute bottom-4 left-4 right-4 bg-card/90 backdrop-blur-xl rounded-xl p-4 border border-border/50">
-                <p className="font-semibold text-foreground">HealthCare Plus Clinic</p>
-                <p className="text-sm text-muted-foreground">San Francisco, CA · 12 practitioners</p>
+              {/* Overlay card */}
+              <div className="absolute bottom-6 left-6 right-6 bg-card/80 backdrop-blur-xl rounded-2xl p-6 border border-border/30">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="font-semibold text-foreground text-lg">Seamless integration</p>
+                    <p className="text-sm text-muted-foreground">Works with tools you already use</p>
+                  </div>
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <span className="text-primary text-xl">∞</span>
+                  </div>
+                </div>
               </div>
             </div>
             
-            {/* Quote */}
-            <div className="relative animate-fade-in-up" style={{ animationDelay: "0.15s" }}>
-              <Quote className="w-16 h-16 text-primary/10 mb-6" />
-              <blockquote className="text-2xl md:text-3xl font-medium text-foreground leading-relaxed mb-8">
-                "ClinicFlow didn't just streamline our operations—it transformed how we think about patient care. We've reduced wait times by 40% and our staff finally has time to breathe."
+            {/* Testimonial */}
+            <div className="relative animate-fade-in-up order-1 lg:order-2" style={{ animationDelay: "0.15s" }}>
+              <Quote className="w-20 h-20 text-primary/8 mb-4" />
+              <blockquote className="text-2xl md:text-3xl lg:text-4xl font-medium text-foreground leading-snug mb-10">
+                "This isn't software. It's a{" "}
+                <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
+                  philosophy
+                </span>
+                {" "}of how work should feel."
               </blockquote>
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">
-                  JM
+              <div className="flex items-center gap-4 mb-10">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center text-primary font-bold text-lg ring-2 ring-primary/10">
+                  SC
                 </div>
                 <div>
-                  <p className="font-semibold text-foreground">Dr. James Mitchell</p>
-                  <p className="text-muted-foreground">Medical Director, HealthCare Plus</p>
+                  <p className="font-semibold text-foreground">Sarah Chen</p>
+                  <p className="text-muted-foreground">COO, Meridian Health Systems</p>
                 </div>
               </div>
               
-              {/* Results */}
-              <div className="mt-10 grid grid-cols-3 gap-6 pt-8 border-t border-border/50">
+              {/* Results - Less clinical, more impactful */}
+              <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border/30">
                 {[
-                  { value: "40%", label: "Less Wait Time" },
-                  { value: "2hrs", label: "Saved Daily" },
-                  { value: "35%", label: "Revenue Growth" },
+                  { value: "3x", label: "Faster onboarding" },
+                  { value: "40%", label: "Cost reduction" },
+                  { value: "12hrs", label: "Weekly time saved" },
                 ].map((stat, idx) => (
                   <div key={idx}>
-                    <div className="text-2xl font-bold text-primary mb-1">{stat.value}</div>
+                    <div className="text-2xl md:text-3xl font-bold text-primary mb-1">{stat.value}</div>
                     <div className="text-sm text-muted-foreground">{stat.label}</div>
                   </div>
                 ))}
@@ -84,14 +108,23 @@ const SocialProof = () => {
           </div>
         </div>
         
-        {/* Bottom Slogan */}
-        <div className="text-center mt-20 max-w-3xl mx-auto">
-          <p className="text-xl md:text-2xl font-medium text-foreground">
-            From solo practitioners to multi-location networks—
-            <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
-              {" "}ClinicFlow scales with you.
-            </span>
-          </p>
+        {/* Bottom Philosophy Statement */}
+        <div className="text-center mt-28 max-w-4xl mx-auto">
+          <div className="bg-gradient-to-r from-card/0 via-card/60 to-card/0 backdrop-blur-sm rounded-3xl py-16 px-8">
+            <p className="text-2xl md:text-3xl lg:text-4xl font-medium text-foreground leading-relaxed mb-8">
+              We don't sell features.{" "}
+              <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
+                We sell time back.
+              </span>
+            </p>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+              Every minute you spend wrestling with tools is a minute stolen from what matters. We're here to end that.
+            </p>
+            <Button variant="outline" className="rounded-xl px-6 py-5 group bg-card/50 border-border/50">
+              Read our story
+              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </div>
         </div>
       </div>
     </section>
