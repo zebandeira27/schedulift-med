@@ -13,9 +13,9 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">C</span>
+              <span className="text-primary-foreground font-bold text-lg">I</span>
             </div>
-            <span className="text-xl font-bold text-foreground">ClinicFlow</span>
+            <span className="text-xl font-bold text-foreground">Inturi</span>
           </div>
 
           {/* Desktop Navigation */}

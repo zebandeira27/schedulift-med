@@ -98,13 +98,13 @@ const Footer = () => {
         <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">C</span>
+              <span className="text-primary-foreground font-bold text-lg">I</span>
             </div>
-            <span className="text-lg font-bold text-foreground">ClinicFlow</span>
+            <span className="text-lg font-bold text-foreground">Inturi</span>
           </div>
 
           <p className="text-sm text-muted-foreground">
-            © 2025 ClinicFlow. All rights reserved.
+            © 2025 Inturi. All rights reserved.
           </p>
 
           <div className="flex items-center gap-4">

@@ -6,7 +6,7 @@ const testimonials = [
     role: "Medical Director",
     clinic: "Wellness Family Clinic",
     image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&h=150&fit=crop",
-    content: "ClinicFlow transformed how we manage appointments. Our no-show rate dropped by 35% and staff productivity increased significantly.",
+    content: "Inturi transformed how we manage appointments. Our no-show rate dropped by 35% and staff productivity increased significantly.",
   },
   {
     name: "Dr. James Mitchell",
