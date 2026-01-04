@@ -43,7 +43,9 @@ const Navbar = () => {
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
             <LanguageSwitcher />
-            <Button variant="ghost" className="font-medium">{t('nav.signIn')}</Button>
+            <Link to="/auth">
+              <Button variant="ghost" className="font-medium">{t('nav.signIn')}</Button>
+            </Link>
             <Button className="font-medium shadow-soft hover:shadow-medium transition-all duration-300">{t('nav.startTrial')}</Button>
           </div>
 
@@ -100,9 +102,11 @@ const Navbar = () => {
                 {t('nav.contact')}
               </a>
               <div className="flex flex-col gap-2 pt-4 mt-2 border-t border-border/50">
-                <Button variant="ghost" className="w-full font-medium">
-                  {t('nav.signIn')}
-                </Button>
+                <Link to="/auth" onClick={() => setIsOpen(false)}>
+                  <Button variant="ghost" className="w-full font-medium">
+                    {t('nav.signIn')}
+                  </Button>
+                </Link>
                 <Button className="w-full font-medium shadow-soft">{t('nav.startTrial')}</Button>
               </div>
             </div>
