@@ -8,22 +8,47 @@ const ClinicCard = ({ clinic, onClick }: { clinic: Clinic; onClick: () => void }
   return (
     <button
       onClick={onClick}
-      className="group flex flex-col items-center gap-4 p-2 transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-2xl"
+      className="group flex flex-col items-center gap-5 p-4 transition-all duration-500 focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-3xl"
     >
-      <div className={`
-        w-28 h-28 md:w-36 md:h-36 rounded-2xl bg-gradient-to-br ${clinic.color}
-        flex items-center justify-center text-4xl md:text-5xl
-        shadow-xl group-hover:shadow-2xl transition-all duration-300
-        border-4 border-transparent group-hover:border-white/30
-        relative overflow-hidden
-      `}>
-        {/* Shine effect */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-        <span className="relative z-10 drop-shadow-lg">{clinic.avatar}</span>
+      <div className="relative">
+        {/* Glow effect */}
+        <div className={`
+          absolute -inset-2 bg-gradient-to-br ${clinic.color} rounded-3xl opacity-0 
+          group-hover:opacity-60 blur-xl transition-all duration-500
+        `} />
+        
+        {/* Main card */}
+        <div className={`
+          relative w-32 h-32 md:w-40 md:h-40 rounded-2xl overflow-hidden
+          shadow-lg group-hover:shadow-2xl transition-all duration-500
+          ring-4 ring-transparent group-hover:ring-primary/30
+          group-hover:scale-105 transform
+        `}>
+          <img 
+            src={clinic.avatar} 
+            alt={clinic.name}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+          
+          {/* Gradient overlay */}
+          <div className={`
+            absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent
+            opacity-0 group-hover:opacity-100 transition-opacity duration-500
+          `} />
+          
+          {/* Shine effect */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/30 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+        </div>
       </div>
-      <span className="text-sm md:text-base font-medium text-foreground/80 group-hover:text-foreground transition-colors max-w-[120px] text-center leading-tight">
-        {clinic.name}
-      </span>
+      
+      <div className="text-center space-y-1">
+        <span className="block text-base md:text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
+          {clinic.name}
+        </span>
+        <span className="block text-xs text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          Click to enter
+        </span>
+      </div>
     </button>
   );
 };
@@ -31,19 +56,32 @@ const ClinicCard = ({ clinic, onClick }: { clinic: Clinic; onClick: () => void }
 const AddClinicCard = () => {
   return (
     <button
-      className="group flex flex-col items-center gap-4 p-2 transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-2xl opacity-60 hover:opacity-100"
+      className="group flex flex-col items-center gap-5 p-4 transition-all duration-500 focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-3xl"
     >
-      <div className="
-        w-28 h-28 md:w-36 md:h-36 rounded-2xl bg-muted/50
-        flex items-center justify-center
-        border-2 border-dashed border-muted-foreground/30 group-hover:border-primary/50
-        transition-all duration-300
-      ">
-        <Plus className="w-10 h-10 text-muted-foreground group-hover:text-primary transition-colors" />
+      <div className="relative">
+        <div className="
+          w-32 h-32 md:w-40 md:h-40 rounded-2xl
+          bg-gradient-to-br from-muted/80 to-muted/40
+          backdrop-blur-sm
+          flex items-center justify-center
+          border-2 border-dashed border-muted-foreground/20 group-hover:border-primary/50
+          transition-all duration-500 group-hover:scale-105
+          shadow-lg group-hover:shadow-xl
+        ">
+          <div className="w-14 h-14 rounded-full bg-muted-foreground/10 group-hover:bg-primary/20 flex items-center justify-center transition-all duration-300">
+            <Plus className="w-7 h-7 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
+          </div>
+        </div>
       </div>
-      <span className="text-sm md:text-base font-medium text-muted-foreground group-hover:text-foreground transition-colors">
-        Add Clinic
-      </span>
+      
+      <div className="text-center space-y-1">
+        <span className="block text-base md:text-lg font-semibold text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+          Add Clinic
+        </span>
+        <span className="block text-xs text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          Create new
+        </span>
+      </div>
     </button>
   );
 };
@@ -69,60 +107,81 @@ const SelectClinic = () => {
 
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
-      {/* Animated background */}
+      {/* Premium animated background */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5" />
-      <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-accent/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
+      <div className="absolute inset-0 bg-mesh opacity-30" />
+      
+      {/* Floating orbs */}
+      <div className="absolute top-20 left-[10%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-20 right-[10%] w-[400px] h-[400px] bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }} />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }} />
 
       {/* Header */}
       <header className="relative z-10 flex items-center justify-between p-6 md:p-8">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center">
-            <span className="text-primary-foreground font-bold">C</span>
+          <div className="w-11 h-11 bg-gradient-primary rounded-xl flex items-center justify-center shadow-soft">
+            <span className="text-primary-foreground font-bold text-xl font-display">I</span>
           </div>
+          <span className="text-xl font-bold text-foreground font-display tracking-tight hidden sm:block">Inturi</span>
         </div>
-        <div className="flex items-center gap-2">
-          <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground">
+        <div className="flex items-center gap-1 md:gap-2">
+          <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground hover:bg-muted/50">
             <Settings className="w-5 h-5" />
           </Button>
           <Button 
             variant="ghost" 
             size="sm" 
             onClick={signOut}
-            className="text-muted-foreground hover:text-foreground gap-2"
+            className="text-muted-foreground hover:text-foreground hover:bg-muted/50 gap-2"
           >
             <LogOut className="w-4 h-4" />
-            Sign Out
+            <span className="hidden sm:inline">Sign Out</span>
           </Button>
         </div>
       </header>
 
       {/* Main content */}
       <main className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-120px)] px-4">
-        <div className="text-center mb-12 md:mb-16">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-3">
-            Welcome, <span className="text-gradient">{user?.name}</span>
+        {/* Welcome section */}
+        <div className="text-center mb-14 md:mb-20 space-y-4">
+          <p className="text-sm md:text-base text-primary font-medium tracking-wide uppercase">
+            Welcome back
+          </p>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground">
+            <span className="text-gradient">{user?.name}</span>
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground">
-            Select a clinic to continue
+          <p className="text-lg md:text-xl text-muted-foreground max-w-md mx-auto">
+            Select a clinic to manage today
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-6 md:gap-10 max-w-4xl">
-          {clinics.map((clinic) => (
-            <ClinicCard
+        {/* Clinics grid */}
+        <div className="flex flex-wrap justify-center gap-6 md:gap-10 lg:gap-14 max-w-5xl">
+          {clinics.map((clinic, index) => (
+            <div 
               key={clinic.id}
-              clinic={clinic}
-              onClick={() => handleSelectClinic(clinic)}
-            />
+              className="animate-fade-in"
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              <ClinicCard
+                clinic={clinic}
+                onClick={() => handleSelectClinic(clinic)}
+              />
+            </div>
           ))}
-          <AddClinicCard />
+          <div 
+            className="animate-fade-in"
+            style={{ animationDelay: `${clinics.length * 100}ms` }}
+          >
+            <AddClinicCard />
+          </div>
         </div>
 
-        <div className="mt-16 text-center">
+        {/* Footer action */}
+        <div className="mt-20 text-center">
           <Button 
-            variant="link" 
-            className="text-muted-foreground hover:text-foreground"
+            variant="ghost" 
+            className="text-muted-foreground hover:text-foreground text-sm"
           >
             Manage Clinics
           </Button>

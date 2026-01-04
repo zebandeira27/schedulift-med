@@ -27,10 +27,10 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 const DEMO_CLINICS: Clinic[] = [
-  { id: '1', name: 'Downtown Medical', avatar: '🏥', color: 'from-indigo-500 to-purple-600' },
-  { id: '2', name: 'Wellness Center', avatar: '💚', color: 'from-emerald-500 to-teal-600' },
-  { id: '3', name: 'Family Health', avatar: '👨‍👩‍👧', color: 'from-amber-500 to-orange-600' },
-  { id: '4', name: 'Sports Clinic', avatar: '⚡', color: 'from-sky-500 to-blue-600' },
+  { id: '1', name: 'Downtown Medical', avatar: '/src/assets/clinic-1.png', color: 'from-indigo-500 to-purple-600' },
+  { id: '2', name: 'Wellness Center', avatar: '/src/assets/clinic-2.png', color: 'from-emerald-500 to-teal-600' },
+  { id: '3', name: 'Dental Care', avatar: '/src/assets/clinic-3.png', color: 'from-amber-500 to-orange-600' },
+  { id: '4', name: 'Sports Rehab', avatar: '/src/assets/clinic-4.png', color: 'from-sky-500 to-blue-600' },
 ];
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
